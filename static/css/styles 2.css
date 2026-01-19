@@ -1,0 +1,92 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FEF3E2;
+    overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Header styles */
+header {
+    background-color: #FF4545;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Keeps the header at the top */
+    top: 0; /* Position the header at the very top */
+    z-index: 10;
+}
+
+.libraries {
+    font-size: 18px;
+}
+
+/* Search bar styles */
+.search-bar {
+    background-color: #FCF596;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #FF9C73;
+}
+
+.search-bar input {
+    width: 90%; /* Increase the width of the search box */
+    max-width: 600px; /* Limit the maximum width */
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #FF9C73;
+    border-radius: 5px;
+}
+
+
+/* Content styles */
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds space between items */
+}
+
+/* Item styles */
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #FBD288;
+    border-radius: 5px;
+}
+
+.item img {
+    width: 50px;
+    height: 50px;
+    background-color: #FF9C73;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.item .description {
+    font-size: 16px;
+}
+
+/*Menu bar*/
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.menu a:hover {
+    background-color: #FF9C73;
+}

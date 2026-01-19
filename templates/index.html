@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLib - Medication Library</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="nav">
+            <a class="brand" href="welcome.html">MedLib</a>
+            <nav class="nav-links">
+                <a href="welcome.html">Home</a>
+                <a href="types.html">Types</a>
+                <a href="activities.html">Activities</a>
+                <a href="information.html">Information</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div>
+                <h1>Medication library for fast, visual learning.</h1>
+                <p>
+                    Explore 20 core medications with visual cards that highlight class, use,
+                    and key cautions. Built for medical students who want quick context and
+                    clean recall.
+                </p>
+            </div>
+            <div class="hero-card">
+                <h3>Study focus</h3>
+                <ul class="hero-points">
+                    <li>Use the images to anchor memory.</li>
+                    <li>Scan class + use in seconds.</li>
+                    <li>Review the key caution line.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="search-bar">
+            <input type="text" id="search" placeholder="Search by name, class, use, or route...">
+            <div class="filter-hint">20 meds max, optimized for quick review.</div>
+        </section>
+
+        <section class="med-grid" id="med-grid"></section>
+
+        <p class="footer-note">
+            Educational overview only. Always cross-check with primary references.
+        </p>
+    </main>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="nav">
+            <a class="brand" href="welcome.html">MedLib</a>
+            <nav class="nav-links">
+                <a href="welcome.html">Home</a>
+                <a href="types.html">Types</a>
+                <a href="activities.html">Activities</a>
+                <a href="information.html">Information</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <div>
+                <h1>Quick recall drills.</h1>
+                <p>Use these fast checks to reinforce class, use, and routes.</p>
+            </div>
+        </section>
+
+        <section class="panel stack" id="quiz-list"></section>
+    </main>
+
+    <script>
+        const questions = [
+            {
+                id: 1,
+                text: "What is the primary function of antibiotics?",
+                options: [
+                    "A: Kill or inhibit bacteria",
+                    "B: Reduce fever",
+                    "C: Relieve pain",
+                    "D: Treat allergies"
+                ],
+                answer: "A",
+                explanation: "Correct! Antibiotics target bacteria, not symptoms."
+            },
+            {
+                id: 2,
+                text: "Which medication is commonly used to reduce fever?",
+                options: [
+                    "A: Antibiotics",
+                    "B: Acetaminophen",
+                    "C: Omeprazole",
+                    "D: Antihistamines"
+                ],
+                answer: "B",
+                explanation: "Correct! Acetaminophen is a common antipyretic."
+            },
+            {
+                id: 3,
+                text: "What is the primary use of antihistamines?",
+                options: [
+                    "A: Reduce fever",
+                    "B: Relieve pain",
+                    "C: Treat allergies",
+                    "D: Kill bacteria"
+                ],
+                answer: "C",
+                explanation: "Correct! Antihistamines treat allergy symptoms."
+            },
+            {
+                id: 4,
+                text: "Which medication is a rapid rescue inhaler?",
+                options: [
+                    "A: Albuterol",
+                    "B: Omeprazole",
+                    "C: Metformin",
+                    "D: Warfarin"
+                ],
+                answer: "A",
+                explanation: "Correct! Albuterol is a short-acting bronchodilator."
+            },
+            {
+                id: 5,
+                text: "A common side effect of ACE inhibitors like lisinopril is:",
+                options: [
+                    "A: Cough",
+                    "B: Hair loss",
+                    "C: Constipation",
+                    "D: Photosensitivity"
+                ],
+                answer: "A",
+                explanation: "Correct! ACE inhibitors can cause a dry cough."
+            },
+            {
+                id: 6,
+                text: "Warfarin therapy is monitored using:",
+                options: [
+                    "A: INR",
+                    "B: Hemoglobin A1c",
+                    "C: Troponin",
+                    "D: BNP"
+                ],
+                answer: "A",
+                explanation: "Correct! INR guides warfarin dosing."
+            },
+            {
+                id: 7,
+                text: "Omeprazole belongs to which class?",
+                options: [
+                    "A: PPI",
+                    "B: SSRI",
+                    "C: Beta blocker",
+                    "D: Macrolide"
+                ],
+                answer: "A",
+                explanation: "Correct! Omeprazole is a proton pump inhibitor."
+            },
+            {
+                id: 8,
+                text: "First-line therapy for type 2 diabetes is often:",
+                options: [
+                    "A: Metformin",
+                    "B: Insulin glargine",
+                    "C: Lisinopril",
+                    "D: Clopidogrel"
+                ],
+                answer: "A",
+                explanation: "Correct! Metformin is standard first-line therapy."
+            },
+            {
+                id: 9,
+                text: "Statins lower LDL by inhibiting:",
+                options: [
+                    "A: HMG-CoA reductase",
+                    "B: COX-2",
+                    "C: ACE",
+                    "D: MAO"
+                ],
+                answer: "A",
+                explanation: "Correct! Statins inhibit HMG-CoA reductase."
+            },
+            {
+                id: 10,
+                text: "Aspirin reduces platelet aggregation by:",
+                options: [
+                    "A: Irreversible COX inhibition",
+                    "B: Blocking histamine",
+                    "C: Enhancing insulin",
+                    "D: Inhibiting PPIs"
+                ],
+                answer: "A",
+                explanation: "Correct! Aspirin irreversibly inhibits COX."
+            },
+            {
+                id: 11,
+                text: "Insulin glargine is best described as:",
+                options: [
+                    "A: Long-acting basal insulin",
+                    "B: Rapid-acting bolus insulin",
+                    "C: Oral insulin",
+                    "D: Inhaled insulin"
+                ],
+                answer: "A",
+                explanation: "Correct! Glargine provides basal coverage."
+            },
+            {
+                id: 12,
+                text: "ACE inhibitors can increase:",
+                options: [
+                    "A: Potassium levels",
+                    "B: Calcium levels",
+                    "C: Sodium levels",
+                    "D: Platelet count"
+                ],
+                answer: "A",
+                explanation: "Correct! ACE inhibitors may cause hyperkalemia."
+            },
+            {
+                id: 13,
+                text: "A notable effect of diphenhydramine is:",
+                options: [
+                    "A: Sedation",
+                    "B: Bronchodilation",
+                    "C: INR reduction",
+                    "D: Diuresis"
+                ],
+                answer: "A",
+                explanation: "Correct! Diphenhydramine is sedating."
+            },
+            {
+                id: 14,
+                text: "Compared with diphenhydramine, cetirizine is:",
+                options: [
+                    "A: Less sedating",
+                    "B: More sedating",
+                    "C: An antibiotic",
+                    "D: A beta blocker"
+                ],
+                answer: "A",
+                explanation: "Correct! Cetirizine is a second-generation antihistamine."
+            },
+            {
+                id: 15,
+                text: "SSRIs typically take how long to show full effect?",
+                options: [
+                    "A: Weeks",
+                    "B: Minutes",
+                    "C: 1 hour",
+                    "D: 1 day"
+                ],
+                answer: "A",
+                explanation: "Correct! SSRIs need several weeks for full effect."
+            },
+            {
+                id: 16,
+                text: "Clopidogrel is most commonly used for:",
+                options: [
+                    "A: Antiplatelet therapy after stent",
+                    "B: Treating asthma attacks",
+                    "C: Treating GERD",
+                    "D: Lowering blood glucose"
+                ],
+                answer: "A",
+                explanation: "Correct! Clopidogrel is used for antiplatelet therapy."
+            },
+            {
+                id: 17,
+                text: "NSAIDs like ibuprofen can increase risk of:",
+                options: [
+                    "A: GI bleeding",
+                    "B: Hypoglycemia",
+                    "C: Bradycardia",
+                    "D: Hyperthyroidism"
+                ],
+                answer: "A",
+                explanation: "Correct! NSAIDs can irritate the GI tract."
+            },
+            {
+                id: 18,
+                text: "Azithromycin carries a risk of:",
+                options: [
+                    "A: QT prolongation",
+                    "B: Severe hypoglycemia",
+                    "C: Kidney stones",
+                    "D: Hyperkalemia"
+                ],
+                answer: "A",
+                explanation: "Correct! Macrolides can prolong QT."
+            },
+            {
+                id: 19,
+                text: "Losartan is often chosen when ACE inhibitors cause:",
+                options: [
+                    "A: Cough",
+                    "B: Sedation",
+                    "C: Constipation",
+                    "D: Tachycardia"
+                ],
+                answer: "A",
+                explanation: "Correct! ARBs avoid the ACE inhibitor cough."
+            },
+            {
+                id: 20,
+                text: "Compared to ibuprofen, naproxen typically has:",
+                options: [
+                    "A: Longer duration of action",
+                    "B: Shorter duration of action",
+                    "C: No anti-inflammatory effect",
+                    "D: No analgesic effect"
+                ],
+                answer: "A",
+                explanation: "Correct! Naproxen lasts longer."
+            }
+        ];
+
+        const quizList = document.getElementById("quiz-list");
+
+        quizList.innerHTML = questions
+            .map((item) => {
+                const buttons = item.options
+                    .map((option) => {
+                        const letter = option.split(":")[0];
+                        return `<button onclick="checkAnswer(${item.id}, '${letter}')">${option}</button>`;
+                    })
+                    .join("");
+                return `
+                    <div class="quiz-card">
+                        <h3>${item.text}</h3>
+                        <div class="quiz-options">
+                            ${buttons}
+                        </div>
+                        <p id="feedback-${item.id}" class="feedback"></p>
+                    </div>
+                `;
+            })
+            .join("");
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const question = questions.find((item) => item.id === questionNumber);
+            const feedback = document.getElementById(`feedback-${questionNumber}`);
+            if (!question || !feedback) {
+                return;
+            }
+
+            if (selectedOption === question.answer) {
+                feedback.textContent = question.explanation;
+                feedback.style.color = "#1b7f5f";
+            } else {
+                feedback.textContent = "Incorrect. Try again!";
+                feedback.style.color = "#c23b22";
+            }
+        }
+    </script>
+</body>
+</html>

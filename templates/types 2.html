@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Types of Medicines</title>
+    <style>
+        /* Inline CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FEF3E2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .menu a:hover {
+            background-color: #FF9C73;
+        }
+
+        header {
+            background-color: #FF4545;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .title a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .libraries {
+            font-size: 18px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .dropdown {
+            margin: 20px 0;
+        }
+
+        .dropdown button {
+            background-color: #FF4545;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .dropdown button:hover {
+            background-color: #FF9C73;
+        }
+
+        .dropdown-content {
+            display: none; /* Initially hidden */
+            background-color: #FBD288;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .dropdown-content.active {
+            display: block; /* Shown when active */
+        }
+
+        .dropdown-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .dropdown-content h3 {
+            color: #FF4545;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <a href="welcome.html">MedLib</a>
+        </div>
+        <div class="libraries">TYPES OF MEDICINES</div>
+        <nav class="menu">
+            <a href="welcome.html">Home</a>
+            <a href="types.html">Types</a>
+            <a href="activities.html">Activities</a>
+            <a href="information.html">Information</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <!-- Antibiotics -->
+        <div class="dropdown">
+            <button onclick="toggleDropdown('antibiotics')">Antibiotics</button>
+            <div id="antibiotics" class="dropdown-content">
+                <h3>Antibiotics</h3>
+                <p>
+                    Antibiotics are a class of medicines used to treat bacterial infections.
+                    They work by killing bacteria or inhibiting their growth. Common examples include:
+                </p>
+                <ul>
+                    <li>Amoxicillin</li>
+                    <li>Azithromycin</li>
+                    <li>Cephalexin</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Analgesics -->
+        <div class="dropdown">
+            <button onclick="toggleDropdown('analgesics')">Analgesics</button>
+            <div id="analgesics" class="dropdown-content">
+                <h3>Analgesics</h3>
+                <p>Pain relievers, such as ibuprofen and acetaminophen.</p>
+            </div>
+        </div>
+
+        <!-- Antihistamines -->
+        <div class="dropdown">
+            <button onclick="toggleDropdown('antihistamines')">Antihistamines</button>
+            <div id="antihistamines" class="dropdown-content">
+                <h3>Antihistamines</h3>
+                <p>Used for allergies, such as loratadine and cetirizine.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Inline JavaScript
+
+        function toggleDropdown(id) {
+            const targetContent = document.getElementById(id);
+
+            if (targetContent) {
+                targetContent.classList.toggle('active');
+            } else {
+                console.error(`No element found with id "${id}"`);
+            }
+        }
+    </script>
+</body>
+</html>

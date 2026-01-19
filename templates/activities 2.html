@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FEF3E2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #FF4545;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        .menu a:hover {
+            background-color: #FF9C73;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .quiz-container {
+            margin: 20px 0;
+            border: 1px solid #FF9C73;
+            background-color: #FBD288;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .quiz-container h3 {
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .quiz-options button {
+            background-color: #FF4545;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+        }
+
+        .quiz-options button:hover {
+            background-color: #FF9C73;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <a href="welcome.html" style="color: white; text-decoration: none; font-size: 24px;">MedLib</a>
+        </div>
+        <div class="libraries">ACTIVITIES</div>
+        <nav class="menu">
+            <a href="welcome.html">Home</a>
+            <a href="types.html">Types</a>
+            <a href="activities.html">Activities</a>
+            <a href="information.html">Information</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <!-- Question 1 -->
+        <div class="quiz-container">
+            <h3>What is the primary function of antibiotics?</h3>
+            <div class="quiz-options">
+                <button onclick="checkAnswer(1, 'A')">A: To kill or inhibit bacteria</button>
+                <button onclick="checkAnswer(1, 'B')">B: To reduce fever</button>
+                <button onclick="checkAnswer(1, 'C')">C: To relieve pain</button>
+                <button onclick="checkAnswer(1, 'D')">D: To treat allergies</button>
+            </div>
+            <p id="feedback-1" class="feedback"></p>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-container">
+            <h3>Which medication is commonly used to reduce fever?</h3>
+            <div class="quiz-options">
+                <button onclick="checkAnswer(2, 'A')">A: Antibiotics</button>
+                <button onclick="checkAnswer(2, 'B')">B: Paracetamol</button>
+                <button onclick="checkAnswer(2, 'C')">C: Ibuprofen</button>
+                <button onclick="checkAnswer(2, 'D')">D: Antihistamines</button>
+            </div>
+            <p id="feedback-2" class="feedback"></p>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-container">
+            <h3>What is the primary use of antihistamines?</h3>
+            <div class="quiz-options">
+                <button onclick="checkAnswer(3, 'A')">A: To reduce fever</button>
+                <button onclick="checkAnswer(3, 'B')">B: To relieve pain</button>
+                <button onclick="checkAnswer(3, 'C')">C: To treat allergies</button>
+                <button onclick="checkAnswer(3, 'D')">D: To kill bacteria</button>
+            </div>
+            <p id="feedback-3" class="feedback"></p>
+        </div>
+    </div>
+
+    <script>
+        // Answers for the quiz
+        const answers = {
+            1: 'A', // Question 1 correct answer
+            2: 'B', // Question 2 correct answer
+            3: 'C'  // Question 3 correct answer
+        };
+
+        const explanations = {
+            1: 'Correct! Antibiotics are used to kill or inhibit bacteria.',
+            2: 'Correct! Paracetamol (acetaminophen) is commonly used to reduce fever.',
+            3: 'Correct! Antihistamines are used to treat allergies.'
+        };
+
+        function checkAnswer(questionNumber, selectedOption) {
+            const feedback = document.getElementById(`feedback-${questionNumber}`);
+            if (selectedOption === answers[questionNumber]) {
+                feedback.textContent = explanations[questionNumber];
+                feedback.style.color = 'green';
+            } else {
+                feedback.textContent = 'Incorrect. Please try again!';
+                feedback.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
